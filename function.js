@@ -10,3 +10,11 @@ for (let i = 0; i < 256; i ++) {
     div.style.cssText = "background: red; height: " + squareSize + "px; width: " + squareSize + "px;";
     container.appendChild(div);
 }
+const squares = document.getElementById("container");
+squares.addEventListener("mouseover", (event) => {
+    event.target.style.backgroundColor = "blue";
+    setTimeout(() => {
+        event.target.style.backgroundColor = "";
+    }, 500);
+}, false,
+);
