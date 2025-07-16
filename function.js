@@ -33,14 +33,19 @@ function removeGrid () {
 
 }
 
+function getRandomIntUpTo255() {
+    // 256 is multiplied since math.floor always rounds down, this will end up including 255.
+    return Math.floor(Math.random() * 256);
+}
+
+function returnRGBValue () {
+    return "rgb(" + getRandomIntUpTo255() + ", " + getRandomIntUpTo255() + ", " + getRandomIntUpTo255() + ")";
+}
+
 const squares = document.getElementById("container");
 squares.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = "blue";
-    setTimeout(() => {
-        // remove 500 delay commit once removed.
-        event.target.style.backgroundColor = "";
-    }, 500);
-}, false,
+    event.target.style.background = returnRGBValue();
+    }, false,
 );
 
 createGrid(16);
